@@ -1,0 +1,28 @@
+params:
+  genomes: genomes.tsv
+
+  checkm:
+    do: False
+    batch_num: 1000
+
+  galah:
+    min_completeness: ""
+    max_contamination: ""
+    ani: 99
+    min_aligned_fraction: 50
+    fragment_length: 3000
+    quality_formula: "Parks2020_reduced"
+    # formula                        description
+    # Parks2020_reduced              (default) completeness-5*contamination-5*num_contigs/100-5*num_ambiguous_bases/100000
+    # completeness-4contamination    completeness-4*contamination
+    # completeness-5contamination    completeness-5*contamination
+    # dRep                           completeness-5*contamination+contamination*(strain_heterogeneity/100)+0.5*log10(N50)
+    precluster_ani: 95
+    precluster_method: "dashing"
+    # 'dashing' for HyperLogLog
+    # 'finch' for finch MinHash. [default: dashing]
+
+output:
+  checkm: "results/checkm.out"
+  drep: "results/drep.out"
+  galah: "results/galah.out"
