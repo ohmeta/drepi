@@ -52,5 +52,5 @@ include: "../rules/drep_linclust.smk"
 rule all:
     input:
         rules.predict_all.input,
-        rules.drep_cdhit_all.input,
-        rules.drep_linclust_all.input
+        rules.drep_gene_cdhit_all.input,
+        rules.drep_protein_linclust_all.input

@@ -15,7 +15,7 @@ def parse_genomes(genomes_tsv):
 SAMPLES = parse_genomes(config["genomes"])
 
 
-include: "prepare.smk"
+include: "checkm.smk"
 include: "drep.smk"
 include: "galah.smk"
 

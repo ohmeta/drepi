@@ -1,9 +1,32 @@
 params:
-  genomes: genomes.tsv
+  genomes: "genomes.tsv"
 
-  checkm:
-    do: False
-    batch_num: 1000
+predict:
+  do: False
+  mode: "single"
+  format: "gff"
+
+checkm:
+  do: False
+  table: "checkm_table.tsv"
+  batch_num: 1000
+
+dereplicate:
+  cdhit:
+    rename: True
+    threads: 32
+    sequence_identity_threshold: 0.95
+    alignment_coverage_for_shorter_sequence: 0.9
+    word_length: 8
+    use_global_sequence_identity: 0
+    memory_limit: 0
+    cluster_description_length: 0
+    default_algorithm: 0
+    both_alignment: 1
+
+  linclust:
+
+  drep:
 
   galah:
     min_completeness: ""
