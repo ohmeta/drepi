@@ -1,11 +1,8 @@
-#!/usr/bin/env snakemake
+#!/usr/bin/env python3
 
-import sys
 import os
-import metapi
+import sys
 import pandas as pd
-
-shell.executable("bash")
 
 
 def parse_samples(config):
@@ -39,18 +36,3 @@ def parse_samples(config):
         sys.exit(-1)
     else:
         return samples_df
-
-
-SAMPLES = parse_samples(config)
-
-
-include: "../rules/predict.smk"
-include: "../rules/drep_cdhit.smk"
-include: "../rules/drep_linclust.smk"
-
-
-rule all:
-    input:
-        rules.predict_all.input,
-        rules.drep_gene_cdhit_all.input,
-        rules.drep_protein_linclust_all.input
